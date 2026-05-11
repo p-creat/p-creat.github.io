@@ -2,9 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"> -->
-    <title>E-Metals 金属・非金属の各種材料</title>
-    <!-- CSS リソース -->
+    <title>E-Metals - 金属・非金属の各種材料</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -12,11 +10,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <style>
-        /* カスタムスタイル */
+        /* オリジナルのスタイル（修正なし） */
         .bg-main { background-color: #00356b; }
         .bg-orange { background-color: #f39c12; }
         .text-red { color: #e74c3c; }
-        .hover\:text-red-200:hover { color: #f5b7b1; }
         .bg-red { background-color: #e53e3e; }
         .bg-blue-100 { background-color: #ebf8ff; }
         .border-blue-900 { border-color: #2b6cb0; }
@@ -24,27 +21,17 @@
         .bg-main-lightest { background-color: #eef2f6; }
         .bg-orange-light { background-color: #fff7ed; }
 
-        .animate-scroll-wrapper {
-            animation: scroll 20s linear infinite;
-        }
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+        .animate-scroll-wrapper {
+            animation: scroll 20s linear infinite;
+        }
         .animate-scroll-text {
             padding-right: 3rem;
         }
-        .tilted-tags {
-            display: flex;
-        }
-        .slick-list {
-            overflow: hidden !important;
-            transform: translate3d(0,0,0);
-        }
-        html, body {
-        
-        }
-        /* fallback for sliders before init */
+
         .new_products_slider:not(.slick-initialized),
         .recommend_products_slider:not(.slick-initialized),
         .recommend_plate_slider:not(.slick-initialized),
@@ -104,12 +91,11 @@
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
-    <!-- ================= ヘッダー部分 (includes/header.blade.php の静的化) ================= -->
+<body>
+    <!-- ================= ヘッダー ================= -->
     <header id="header">
-        <!-- 上部通知バー -->
-        <div class="bg-main w-full relative h-10 flex items-center justify-between pr-[120px] md:h-10 md:pr-[16px]">
-            <div class="flex items-center overflow-hidden flex-1 relative">
+        <div class="bg-main w-full relative h-10 flex items-center justify-between pr-[120px] md:h-10 md:pr-[16px] h-lt:!pr-0 sm-pc:!pr-0 md:!pr-0 md:pl-0 lg:pr-10">
+            <div class="flex items-center overflow-hidden flex-1 relative md:w-auto md:mr-[0px] md:flex-1 lg:w-auto lg:flex-1">
                 <div class="animate-scroll-wrapper flex text-white text-xs font-normal leading-none whitespace-nowrap">
                     <span class="animate-scroll-text text-white">高純度、特殊材料を豊富に掲載・材料選定からご相談可能・ご購入金額1,000円ごとに<span class="font-bold text-white">1メタルポイント</span>・各種書類のＤＬが可能・材料に困ったらイーメタルズ</span>
                     <span class="animate-scroll-text text-white">高純度、特殊材料を豊富に掲載・材料選定からご相談可能・ご購入金額1,000円ごとに<span class="font-bold text-white">1メタルポイント</span>・各種書類のＤＬが可能・材料に困ったらイーメタルズ</span>
@@ -137,49 +123,45 @@
             </div>
         </div>
 
-        <!-- ハンバーガーメニュー (簡易版、非表示でもOK) -->
-        <div id="sideNav" class="hidden fixed top-0 right-0 z-50 w-screen h-screen bg-[#374255] transform translate-x-full transition-all duration-300 ease-linear">
-            <!-- 中身は省略（実際の動作には影響しない） -->
+        <div id="sideNav" class="hidden overflow-y-auto fixed top-0 right-0 z-50 w-screen h-screen bg-[#374255] transform translate-x-full transition-all duration-300 ease-linear">
+            <a href="javascript:void(0)" class="text-3xl absolute top-0 right-0 mr-3 mt-2 text-white Nav">&times;</a>
+            <div class="flex flex-col justify-center w-full px-5 pt-14">
+                <div class="flex w-full"><div class="w-[65%]"><form class="relative"><input class="!py-2.25 w-88 !pl-2.5 mr-1.25 w-[calc(95%-45px)] input-text" type="text" placeholder="例：ターゲット材・タングステン" /><button class="bg-orange rounded-sm !py-2 md:w-[40px] text-center"><i class="text-white fa-solid fa-magnifying-glass"></i></button></form></div><div><a href="#" class="px-4 block rounded-lg text-center py-1 bg-white"><i class="fa-solid fa-cart-shopping"></i>カート</a></div></div>
+                <ul class="flex flex-wrap mt-5 border-b border-white mb-5 [&>li]:w-1/2 [&>li>a]:w-full [&>li>a]:block [&>li>a]:text-lg [&>li>a]:text-white [&>li>a]:text-center [&>li>a]:py-5">
+                    <li><a href="#"><i class="fa-solid fa-file-lines"></i> 会員登録</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン</a></li>
+                    <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> 見積依頼</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> お問合せ</a></li>
+                </ul>
+            </div>
         </div>
 
-        <!-- メインのヘッダー部分（ロゴ、検索、カート等） -->
         <div id="header-main" class="bg-main relative w-full h-[139px] transition-shadow duration-300">
             <div class="bg-main h-[139px] relative w-full" style="background-image: url('https://placehold.co/1920x139/00356b/white?text=header_bg'); background-size: cover;">
                 <div class="absolute h-[139px] left-0 right-0 top-0 md:px-4">
-                    <!-- モバイルレイアウト -->
                     <div class="flex h-lx:hidden h-dt:hidden items-center justify-between w-full pt-6 md:pt-[16px]">
                         <a href="/" class="shrink-0"><img src="https://placehold.co/120x38/00356b/white?text=LOGO" alt="E-Metals" class="!h-[38px] !w-[120px] object-contain"></a>
                         <div class="flex gap-1 items-center md:-mr-[12px]">
                             <a href="#" class="flex items-center justify-center w-10 h-10 rounded-lg relative"><i class="fa-regular fa-clipboard text-white text-xl"></i></a>
                             <a href="#" class="flex items-center justify-center w-10 h-10 rounded-lg relative"><i class="fa-solid fa-cart-shopping text-white text-xl"></i></a>
                             <a href="#" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg relative"><i class="fa-regular fa-user text-white text-xl"></i></a>
-                            <button id="mobile-menu-trigger" class="flex items-center justify-center w-11 h-11 rounded-lg"><i class="fa-solid fa-bars text-white text-2xl"></i></button>
+                            <button id="mobile-menu-trigger" class="flex items-center justify-center w-11 h-11 rounded-lg Nav"><i class="fa-solid fa-bars text-white text-2xl"></i></button>
                         </div>
                     </div>
-                    <!-- モバイル検索 -->
                     <div class="block h-lx:hidden h-dt:hidden absolute left-0 right-0 top-[68px] px-7 md:px-4">
-                        <form class="bg-white h-12 rounded-lg relative flex items-center w-full">
-                            <input autocomplete="off" class="js-search flex-1 min-w-0 px-4 text-sm text-gray-400 focus:outline-none" type="text" placeholder="商品名、型番、キーワードで検索">
-                            <button class="bg-orange flex items-center justify-center w-10 h-10 rounded-md shrink-0"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
+                        <form class="bg-white h-12 rounded-lg relative flex items-center w-full overflow-visible">
+                            <div class="relative w-full flex items-center"><input autocomplete="off" class="js-search flex-1 min-w-0 px-4 text-sm text-gray-400 focus:outline-none border-none input-text" type="text" placeholder="商品名、型番、キーワードで検索" /></div>
+                            <div class="flex items-center pr-1 shrink-0"><button class="bg-orange flex items-center justify-center w-10 h-10 rounded-md shrink-0"><i class="fa-solid fa-magnifying-glass text-white"></i></button></div>
                         </form>
                     </div>
-                    <!-- PCレイアウト -->
-                    <div class="hidden h-lx:flex items-center absolute left-[20px] right-[828px] top-6">
-                        <a href="/" class="shrink-0 mr-8"><img src="https://placehold.co/120x38/00356b/white?text=LOGO" alt="E-Metals" class="!h-[38px] !w-[120px]"></a>
-                        <div class="relative w-[690px]">
-                            <div class="flex items-center absolute left-0 top-[9.5px] cursor-pointer category-menu-trigger">
-                                <p class="text-[14px] text-white">カテゴリから探す</p><i class="fa-solid fa-chevron-right text-white text-xs ml-1"></i>
-                            </div>
-                            <div class="absolute left-48 w-[498px]">
-                                <form class="bg-white h-12 rounded-lg relative">
-                                    <input class="h-12 w-full px-4 pr-32 text-sm text-gray-800 focus:outline-none" type="text" placeholder="商品名、型番、キーワードで検索">
-                                    <button class="bg-orange absolute right-1 top-1 w-10 h-10 rounded-md"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
-                                </form>
-                            </div>
+                    <div class="hidden h-lx:flex gap-[122px] items-center absolute left-[clamp(20px,8vw,120px)] right-[828px] top-6">
+                        <div class="flex items-center shrink-0"><a href="/" class="shrink-0"><img src="https://placehold.co/120x38/00356b/white?text=LOGO" alt="E-Metals" class="!h-[38px] !w-[120px] object-contain"></a></div>
+                        <div class="h-12 relative w-[690px] max-[1570px]:hidden">
+                            <div class="flex items-center absolute left-0 top-[9.5px] whitespace-nowrap cursor-pointer category-menu-trigger"><p class="text-[14px] text-white">カテゴリから探す</p><div class="flex items-center justify-center w-6 h-6 rotate-90"><i class="fa-solid fa-chevron-right text-white text-xs"></i></div></div>
+                            <div class="flex flex-col absolute left-48 right-0"><div class="h-12 relative w-[498px]"><form class="absolute bg-white h-12 left-0 right-0 rounded-lg top-0 overflow-visible"><input class="h-12 w-full px-4 pr-32 text-sm text-gray-800 focus:outline-none" type="text" placeholder="商品名、型番、キーワードで検索" /><button class="bg-orange absolute right-1 top-1 w-10 h-10 rounded-md"><i class="fa-solid fa-magnifying-glass text-white"></i></button></form></div></div>
                         </div>
                     </div>
-                    <!-- 右側ユーザーエリア -->
-                    <div class="hidden h-dt:flex h-lx:flex absolute gap-8 items-center right-[20px] top-[23.5px]">
+                    <div class="hidden h-dt:flex h-lx:flex absolute gap-8 items-center right-[clamp(20px,8vw,120px)] top-[23.5px]">
                         <div class="flex gap-1 items-center"><i class="fa-regular fa-clipboard text-white"></i><a href="#"><span class="text-white text-[14px]">見積依頼</span></a></div>
                         <div class="flex gap-1 items-center"><i class="fa-solid fa-cart-shopping text-white"></i><a href="#"><span class="text-white text-[14px]">カート</span></a></div>
                         <a href="#" class="bg-orange h-12 px-6 rounded-lg flex items-center">ログイン・会員登録</a>
@@ -189,56 +171,45 @@
         </div>
     </header>
 
-    <!-- メインコンテンツ (index.blade.php の内容を静的化) -->
+    <!-- ================= メインコンテンツ (index.blade.php の内容) ================= -->
     <main id="main" class="w-full md:-mt-[40px] -mt-[50px] dt:-mt-[30px] lt:-mt-[35px]">
-        <!-- Hero セクション -->
         <section class="relative">
             <div class="flex sm-pc:flex-col">
-                <div class="w-1/2 sm-pc:w-full flex flex-col gap-4 px-5 py-10 md:px-0 md:py-0 mt-[60px] lt:!mt-[0px] lx:mt-[60px] pc:mt-[33px] h-lx:mt-[20px] pd:mt-[20px] lg:mt-[50px] md:mt-[25px] sm:mt-0 pl-0">
-                    <h1 class="text-[28px] pc:mt-[42px] pc-lg-pc:!mt-[5px] dt:!-mt-[30px] lt:!-mt-[30px] dt:text-[30px] lx:text-[40px] lg:text-[44px] lg:!text-[56px] lg:!font-medium font-semibold leading-[1.4] text-gray-900">
-                        <span class="text-amber-600">金属・非金属</span>の各種材料が<br>即購入できます
-                    </h1>
-                    <p class="text-base text-gray-600"><span class="font-medium text-gray-700 lx:text-[20px] lg:text-[24px]">1個購入から</span><span class="font-light lx:text-[20px] lg:text-[24px]">大量生産まで豊富な品揃え</span></p>
+                <div class="w-1/2 sm-pc:w-full flex flex-col gap-4 px-5 py-10 md:px-0 md:py-0 mt-[60px] pl-0">
+                    <h1 class="text-[28px] font-semibold leading-[1.4] text-gray-900"><span class="text-amber-600">金属・非金属</span>の各種材料が<br>即購入できます</h1>
+                    <p class="text-base text-gray-600"><span class="font-medium text-gray-700">1個購入から</span><span class="font-light">大量生産まで豊富な品揃え</span></p>
                 </div>
-                <div class="w-1/2 sm-pc:w-full sm-pc:h-[250px] sm-pc:flex sm-pc:justify-end md:overflow-visible">
-                    <img src="https://placehold.co/600x400/00356b/white?text=Banner" alt="" class="sm-pc:w-fit sm-pc:ml-auto w-full h-full object-cover -translate-y-10">
-                </div>
+                <div class="w-1/2 sm-pc:w-full sm-pc:h-[250px] sm-pc:flex sm-pc:justify-end"><img src="https://placehold.co/600x400/00356b/white?text=Banner" alt="" class="sm-pc:w-fit sm-pc:ml-auto w-full h-full object-cover -translate-y-10"></div>
             </div>
-            <!-- カテゴリメニュー（簡易） -->
-            <div class="px-4 py-2 hidden md:block">カテゴリメニュー（省略）</div>
         </section>
 
         <!-- 新着商品 -->
-        <section class="md:mt-10 relative mt-[80px]">
-            <div class="flex items-end justify-between mb-5 px-3 md:px-0">
-                <h2 class="text-[24px] md:text-[18px] font-medium text-gray-900 leading-[1.4]">新着商品</h2>
-            </div>
+        <section class="md:mt-10 relative md:pr-0 mt-[80px]">
+            <div class="flex items-end justify-between mb-5 px-3 md:px-0"><h2 class="text-[24px] md:text-[18px] font-medium text-gray-900">新着商品</h2></div>
             <div class="relative md:mr-[-16px]">
-                <button class="custom-prev absolute -left-[2px] top-[30%] -translate-y-1/2 w-8 h-8 bg-[#121212]/80 rounded-lg flex md:!hidden items-center justify-center z-10"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="white" stroke-width="2"/></svg></button>
-                <button class="custom-next absolute -right-[2px] top-[30%] -translate-y-1/2 w-8 h-8 bg-[#121212]/80 rounded-lg flex md:!hidden items-center justify-center z-10"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="white" stroke-width="2"/></svg></button>
+                <button class="custom-prev absolute -left-[2px] top-[30%] -translate-y-1/2 w-8 h-8 bg-[#121212]/80 rounded-lg flex md:!hidden items-center justify-center z-10"><i class="fas fa-chevron-left text-white"></i></button>
+                <button class="custom-next absolute -right-[2px] top-[30%] -translate-y-1/2 w-8 h-8 bg-[#121212]/80 rounded-lg flex md:!hidden items-center justify-center z-10"><i class="fas fa-chevron-right text-white"></i></button>
                 <ul class="new_products_slider md:-ml-3">
-                    <!-- 商品サンプル 6つ -->
-                    @php for($i=1;$i<=6;$i++){ @endphp
+                    @for($i=1;$i<=8;$i++)
                     <li class="flex flex-col gap-3 px-3 md:px-[6px] cursor-pointer group">
                         <div class="relative aspect-[204/214] overflow-hidden rounded-2xl bg-gray-100">
-                            <a class="block w-full h-full border border-[#F8F8F8]" href="#">
-                                <img class="w-full h-full object-cover" src="https://placehold.co/204x214/e3e3e3/white?text=商品{{$i}}" alt="">
-                            </a>
+                            <a class="block w-full h-full border border-[#F8F8F8]" href="#"><img class="w-full h-full object-cover" src="https://placehold.co/204x214/e3e3e3/white?text=商品{{$i}}" alt=""></a>
                             <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-40 transition-opacity"></div>
-                            <button class="absolute bottom-3 right-4 hidden md:flex favorite-btn" data-product-id="1"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="16" fill="#E3E3E3"/><path d="M9.63625 24.1562C9.75339 24.2211 9.88577 24.2535 10.0196 24.2499C10.1535 24.2464 10.284 24.207 10.3975 24.136L16 20.6343L21.6025 24.136C21.716 24.207 21.8465 24.2462 21.9803 24.2497C22.1141 24.2533 22.2465 24.2209 22.3636 24.156C22.4807 24.0911 22.5783 23.996 22.6462 23.8807C22.7142 23.7653 22.75 23.6339 22.75 23.5V10C22.75 9.40326 22.5129 8.83097 22.091 8.40901C21.669 7.98705 21.0967 7.75 20.5 7.75H11.5C10.9033 7.75 10.331 7.98705 9.90901 8.40901C9.48705 8.83097 9.25 9.40326 9.25 10V23.5C9.24994 23.6339 9.28572 23.7654 9.35364 23.8808C9.42157 23.9962 9.51915 24.0913 9.63625 24.1562Z" fill="#303030"/></svg></button>
+                            <div class="absolute top-4 left-0 flex overflow-hidden tilted-tags"><div class="flex items-center justify-center bg-red text-white h-[26px] text-sm px-[10px] pr-[15px]" style="clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);">納期割</div><div class="flex items-center justify-center bg-gray-100 text-red h-[26px] text-sm px-[15px] -ml-[13px]" style="clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);">数量割</div></div>
+                            <button class="absolute bottom-3 right-4 hidden md:flex favorite-btn"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="16" fill="#E3E3E3"/><path d="M9.63625 24.1562C9.75339 24.2211 9.88577 24.2535 10.0196 24.2499C10.1535 24.2464 10.284 24.207 10.3975 24.136L16 20.6343L21.6025 24.136C21.716 24.207 21.8465 24.2462 21.9803 24.2497C22.1141 24.2533 22.2465 24.2209 22.3636 24.156C22.4807 24.0911 22.5783 23.996 22.6462 23.8807C22.7142 23.7653 22.75 23.6339 22.75 23.5V10C22.75 9.40326 22.5129 8.83097 22.091 8.40901C21.669 7.98705 21.0967 7.75 20.5 7.75H11.5C10.9033 7.75 10.331 7.98705 9.90901 8.40901C9.48705 8.83097 9.25 9.40326 9.25 10V23.5C9.24994 23.6339 9.28572 23.7654 9.35364 23.8808C9.42157 23.9962 9.51915 24.0913 9.63625 24.1562Z" fill="#303030"/></svg></button>
                         </div>
-                        <div><div class="flex gap-1 items-center"><span class="bg-blue-100 border border-blue-900 text-blue-900 text-xs font-medium px-2 py-1 rounded-full">寸切</span></div><div class="flex gap-4 items-center"><span class="text-sm text-gray-600">ID: {{$i}}</span></div></div>
+                        <div class="flex flex-col gap-[4px]"><div class="flex gap-1 items-center"><span class="bg-blue-100 border border-blue-900 text-blue-900 text-xs font-medium px-2 py-1 rounded-full">寸切</span></div><div class="flex gap-4 items-center"><span class="text-sm text-gray-600">ID: {{$i}}</span></div></div>
                         <div class="text-base text-gray-900 line-clamp-2"><a href="#">サンプル商品 {{$i}} 高純度金属</a></div>
-                        <div><span class="text-xl font-bold text-gray-900">¥ 12,000 ~</span><span class="text-sm text-gray-600">(税込)</span><div class="text-base text-gray-600">納期：1日〜</div></div>
+                        <div class="flex flex-col"><div class="flex gap-2 items-center"><span class="text-xl font-bold text-gray-900">¥ {{12+$i}}000 ~</span><span class="text-sm text-gray-600">(税込)</span></div><div class="text-base text-gray-600">納期：1日〜</div></div>
                     </li>
-                    @php } @endphp
+                    @endfor
                 </ul>
             </div>
         </section>
 
         <!-- 当社一番強い商品 -->
         <section class="md:mt-10 relative mt-[80px]">
-            <h2 class="text-[24px] md:text-[18px] font-medium text-gray-900 leading-[1.4] mb-5">当社一番強い商品</h2>
+            <h2 class="text-[24px] md:text-[18px] font-medium text-gray-900 mb-5">当社一番強い商品</h2>
             <div class="relative md:-ml-[12px]">
                 <ul class="strong_products_slider">
                     <li class="px-3 md:px-[6px]"><a href="#" class="block bg-white rounded-2xl shadow-md overflow-hidden"><div class="p-6"><div class="relative h-40 rounded-lg overflow-hidden mb-2 bg-gray-200"><img src="https://placehold.co/400x200/00356b/white?text=Ta" class="w-full h-full object-cover"></div><p class="text-base">鉭・Ta - 優れた耐食性</p></div></a></li>
@@ -250,7 +221,7 @@
         </section>
 
         <!-- 会員登録セクション -->
-        <section id="register-section" class="mx-[10.77%] md:mx-0 mt-[58px] mb-20 rounded-3xl pt-10 pb-6 pl-20 pr-[57px] md:py-10 md:px-4 flex flex-col gap-10 md:gap-3 items-center" style="background-image: url('https://placehold.co/1200x400/f8f8f8/cccccc?text=bg'); background-size: cover; background-color:#F8F8F8;">
+        <section class="mx-[10.77%] md:mx-0 mt-[58px] mb-20 rounded-3xl pt-10 pb-6 pl-20 pr-[57px] md:py-10 md:px-4 flex flex-col gap-10 md:gap-3 items-center" style="background-image: url('https://placehold.co/1200x400/f8f8f8/cccccc?text=bg'); background-size: cover; background-color:#F8F8F8;">
             <h2 class="text-[24px] md:text-[18px] font-medium text-center">会員登録でスムーズな買い物</h2>
             <div class="flex gap-12 w-full md:flex-wrap md:gap-6 justify-center">
                 <div class="flex-1 text-center"><div class="w-[60px] h-[60px] bg-[#00356b] rounded-full mx-auto flex items-center justify-center"><i class="fas fa-star text-white text-2xl"></i></div><p class="mt-2">メタルポイント</p></div>
@@ -267,14 +238,14 @@
             <div class="flex gap-6 mt-[26px] md:flex-col">
                 <div class="w-[403px] h-[376px] rounded-2xl overflow-hidden bg-gray-200 relative"><img src="https://placehold.co/403x376/cccccc/white" class="w-full h-full object-cover"><div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white text-xl">材料比較<br><span class="text-sm">準備中...</span></div></div>
                 <div class="flex flex-col gap-6 flex-1">
-                    <div class="flex gap-6"><div class="flex-1 h-[176px] bg-gray-200 rounded-2xl relative"><img src="https://placehold.co/400x176/cccccc/white" class="w-full h-full"><div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white">重量計算</div></div><div class="flex-1 h-[176px] bg-gray-200 rounded-2xl relative"><div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white">国際単位系</div></div></div>
+                    <div class="flex gap-6"><div class="flex-1 h-[176px] bg-gray-200 rounded-2xl relative"><div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white">重量計算</div></div><div class="flex-1 h-[176px] bg-gray-200 rounded-2xl relative"><div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white">国際単位系</div></div></div>
                     <div class="h-[176px] bg-gray-200 rounded-2xl relative"><div class="absolute inset-0 bg-black/50 flex items-center justify-center text-white">安全規格・元素記号</div></div>
                 </div>
             </div>
         </section>
 
         <!-- お知らせ -->
-        <section class="flex flex-col gap-10 md:gap-5 max-w-[830px] mx-auto w-full md:mt-10 mt-[80px]">
+        <section class="flex flex-col gap-10 md:gap-5 max-w-[830px] mx-auto w-full md:mt-10 mt-[80px] mb-10">
             <div class="flex items-center justify-between"><p class="font-medium text-2xl text-gray-900">お知らせ</p><a href="#" class="flex items-center gap-1 text-sm">もっと見る <i class="fas fa-arrow-right"></i></a></div>
             <div class="flex flex-col gap-[18px]">
                 <a href="#" class="flex flex-row gap-10 pb-3 border-b border-dashed"><span class="text-base text-gray-600 w-[83px]">2025.04.01</span><div><span class="inline-block bg-blue-100 border border-blue-900 text-blue-900 text-sm px-2 py-1 rounded-full">重要</span><p class="text-base text-gray-900 mt-1">サイトリニューアルのお知らせ</p></div></a>
@@ -283,13 +254,7 @@
         </section>
     </main>
 
-    <!-- フッター簡易版 -->
-    <footer class="bg-main text-white text-center py-6 mt-12">
-        <p>&copy; 2025 E-Metals. All rights reserved.</p>
-    </footer>
-
     <script>
-        // スライダー初期化
         $(function(){
             $('.new_products_slider').slick({
                 slidesToShow: 6, slidesToScroll: 1, infinite: false, arrows: true,
@@ -305,14 +270,8 @@
                 slidesToShow: 4, slidesToScroll: 1, infinite: false, arrows: false,
                 responsive: [
                     { breakpoint: 1280, settings: { slidesToShow: 3 } },
-                    { breakpoint: 768, settings: { slidesToShow: 2 } },
-                    { breakpoint: 480, settings: { slidesToShow: 1.5 } }
+                    { breakpoint: 768, settings: { slidesToShow: 2 } }
                 ]
-            });
-            // お気に入りボタンのダミー処理
-            $('.favorite-btn').on('click', function(e){
-                e.preventDefault();
-                alert('お気に入り機能はデモでは無効です。');
             });
             // ヘッダースティッキー
             var headerMain = $('#header-main');
@@ -327,7 +286,6 @@
                     $('#header').removeClass('has-sticky-header');
                 }
             });
-            // モバイルメニュートグル簡易
             $('#mobile-menu-trigger').on('click', function(){
                 $('#sideNav').toggleClass('hidden').toggleClass('translate-x-full');
             });
