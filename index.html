@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Header 预览 - E-Metals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        .bg-main { background-color: #00356b; }
+        .bg-orange { background-color: #f39c12; }
+        .text-red { color: #e74c3c; }
+        .hover\:text-red-200:hover { color: #f5b7b1; }
+        .hover\:text-gray-600:hover { color: #4b5563; }
+        .input-text:focus { outline: none; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-md { border-radius: 0.375rem; }
+        .rounded-sm { border-radius: 0.125rem; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .transition-all { transition: all 0.3s ease; }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .animate-scroll-wrapper {
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-text {
+            padding-right: 3rem;
+        }
+        #header-main.is-sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+        #header.has-sticky-header {
+            padding-bottom: 144px;
+        }
+        @media (max-width: 767px) {
+            #header.has-sticky-header {
+                padding-bottom: 123px;
+            }
+        }
+        /* 隐藏一些PC端元素，简单模拟响应式 */
+        .h-lx\:hidden { display: block; }
+        .h-lx\:flex { display: none; }
+        .h-dt\:hidden { display: block; }
+        .h-dt\:flex { display: none; }
+        @media (max-width: 1024px) {
+            .h-lx\:hidden { display: none; }
+            .h-lx\:flex { display: flex; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header id="header">
+        <!-- 顶部通知栏 -->
+        <div class="bg-main w-full relative h-10 flex items-center justify-between pr-[120px] md:h-10 md:pr-[16px]">
+            <div class="flex items-center overflow-hidden flex-1 relative">
+                <div class="animate-scroll-wrapper flex text-white text-xs font-normal leading-none whitespace-nowrap">
+                    <span class="animate-scroll-text">高純度、特殊材料を豊富に掲載・材料選定からご相談可能・ご購入金額1,000円ごとに<span class="font-bold">1メタルポイント</span>・各種書類のＤＬが可能・材料に困ったらイーメタルズ</span>
+                    <span class="animate-scroll-text">高純度、特殊材料を豊富に掲載・材料選定からご相談可能・ご購入金額1,000円ごとに<span class="font-bold">1メタルポイント</span>・各種書類のＤＬが可能・材料に困ったらイーメタルズ</span>
+                </div>
+                <div class="absolute h-10 right-0 top-0 w-[80px] pointer-events-none hidden" style="background: linear-gradient(-90deg, rgb(0, 53, 107) 0%, rgba(0, 53, 107, 0) 100%)"></div>
+            </div>
+            <div class="flex items-center gap-8 shrink-0 hidden h-lx:flex">
+                <div class="relative flex gap-1 items-center justify-center guide-menu-trigger">
+                    <a href="javascript:void(0)" class="dropdown flex gap-1 items-center text-white text-[14px] font-normal leading-[1.8] whitespace-nowrap">ご利用ガイド
+                        <div class="flex items-center justify-center w-6 h-6 rotate-90 shrink-0">
+                            <i class="fa-solid fa-chevron-right text-white text-xs"></i>
+                        </div>
+                    </a>
+                    <ul class="hidden guide-menu min-w-[500px] z-50 bg-main absolute top-full px-3 py-3 right-0 flex-wrap">
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-cart-shopping"></i> ご注文の流れ</a></li>
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-building"></i> 出店規約(商品提供者用)</a></li>
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-money-check-dollar"></i> お支払いについて</a></li>
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-download"></i> 帳票類のダウンロード方法</a></li>
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-box"></i> 梱包と送料について</a></li>
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-arrow-rotate-left"></i> 返品及びキャンセル</a></li>
+                        <li class="w-1/2"><a href="#" class="text-white"><i class="fa-solid fa-dollar-sign"></i> ポイントについて</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="text-white text-[14px]">お問い合わせ</a>
+            </div>
+        </div>
+
+        <!-- 汉堡菜单侧边栏（简化，不展开详细） -->
+        <!-- 主头部 -->
+        <div id="header-main" class="bg-main relative w-full h-[139px] transition-shadow duration-300">
+            <div class="bg-main h-[139px] relative w-full" style="background-image: url('https://placehold.co/1920x139/00356b/white?text=header_bg'); background-size: cover;">
+                <div class="absolute h-[139px] left-0 right-0 top-0 md:px-4">
+                    <!-- 手机版布局 -->
+                    <div class="flex h-lx:hidden h-dt:hidden items-center justify-between w-full pt-6 md:pt-[16px]">
+                        <a href="/" class="shrink-0">
+                            <img src="https://placehold.co/120x38/00356b/white?text=LOGO" alt="E-Metals" class="!h-[38px] !w-[120px] object-contain shrink-0">
+                        </a>
+                        <div class="flex gap-1 items-center md:-mr-[12px]">
+                            <a href="#" class="flex items-center justify-center w-10 h-10 rounded-lg relative">
+                                <i class="fa-regular fa-clipboard text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="flex items-center justify-center w-10 h-10 rounded-lg relative">
+                                <i class="fa-solid fa-cart-shopping text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg relative">
+                                <i class="fa-regular fa-user text-white text-xl"></i>
+                            </a>
+                            <button id="mobile-menu-trigger" class="flex items-center justify-center w-11 h-11 rounded-lg">
+                                <i class="fa-solid fa-bars text-white text-2xl"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 手机搜索框 -->
+                    <div class="block h-lx:hidden h-dt:hidden absolute left-0 right-0 top-[68px] px-7 md:px-4">
+                        <form action="#" method="get" class="bg-white h-12 rounded-lg relative flex items-center w-full">
+                            <div class="relative w-full flex items-center">
+                                <input autocomplete="off" class="js-search flex-1 min-w-0 px-4 text-sm text-gray-400 focus:outline-none" type="text" placeholder="商品名、型番、キーワードで検索" />
+                            </div>
+                            <div class="flex items-center pr-1 shrink-0">
+                                <button class="bg-orange flex items-center justify-center w-10 h-10 rounded-md shrink-0">
+                                    <i class="fa-solid fa-magnifying-glass text-white"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- PC/平板布局（简化） -->
+                    <div class="hidden h-lx:flex items-center absolute left-[20px] right-[828px] top-6">
+                        <a href="/" class="shrink-0 mr-8">
+                            <img src="https://placehold.co/120x38/00356b/white?text=LOGO" alt="E-Metals" class="!h-[38px] !w-[120px]">
+                        </a>
+                        <div class="relative w-[690px]">
+                            <div class="flex items-center justify-center absolute left-0 top-[9.5px] cursor-pointer category-menu-trigger">
+                                <p class="text-[14px] text-white">カテゴリから探す</p>
+                                <i class="fa-solid fa-chevron-right text-white text-xs ml-1"></i>
+                            </div>
+                            <div class="absolute left-48 w-[498px]">
+                                <form action="#" class="bg-white h-12 rounded-lg relative">
+                                    <input class="h-12 w-full px-4 pr-32 text-sm text-gray-800 focus:outline-none" type="text" placeholder="商品名、型番、キーワードで検索" />
+                                    <button class="bg-orange absolute right-1 top-1 w-10 h-10 rounded-md"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧用户区简化 -->
+                    <div class="hidden h-dt:flex h-lx:flex absolute gap-8 items-center right-[20px] top-[23.5px]">
+                        <div class="flex gap-1 items-center">
+                            <i class="fa-regular fa-clipboard text-white"></i>
+                            <a href="#"><span class="text-white text-[14px]">見積依頼</span></a>
+                        </div>
+                        <div class="flex gap-1 items-center">
+                            <i class="fa-solid fa-cart-shopping text-white"></i>
+                            <a href="#"><span class="text-white text-[14px]">カート</span></a>
+                        </div>
+                        <a href="#" class="bg-orange h-12 px-6 rounded-lg flex items-center">ログイン・会員登録</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-8 text-center">
+        <p class="text-gray-700">页面内容区域（测试滚动）<br>向下滚动测试吸顶效果</p>
+        <div style="height: 1200px;"></div>
+    </div>
+
+    <script>
+        // 简化的交互：顶部导航菜单点击显示
+        var guideTrigger = document.querySelector('.guide-menu-trigger');
+        if (guideTrigger) {
+            var guideMenu = guideTrigger.querySelector('.guide-menu');
+            guideTrigger.addEventListener('click', function(e) {
+                if (guideMenu.contains(e.target)) return;
+                e.preventDefault();
+                e.stopPropagation();
+                guideMenu.classList.toggle('hidden');
+                if (!guideMenu.classList.contains('hidden')) {
+                    guideMenu.style.display = 'flex';
+                } else {
+                    guideMenu.style.display = '';
+                }
+            });
+            document.addEventListener('click', function(e) {
+                if (!guideTrigger.contains(e.target)) {
+                    guideMenu.classList.add('hidden');
+                    guideMenu.style.display = '';
+                }
+            });
+        }
+
+        // 吸顶效果
+        (function() {
+            var headerMain = document.getElementById('header-main');
+            var header = document.getElementById('header');
+            var topBar = header.querySelector('.bg-main.w-full.relative.h-10');
+            var stickyOffset = topBar ? topBar.offsetHeight : 40;
+            var isSticky = false;
+            function updateSticky() {
+                if (window.scrollY > stickyOffset && !isSticky) {
+                    var headerMainHeight = headerMain.offsetHeight;
+                    header.style.paddingBottom = headerMainHeight + 'px';
+                    headerMain.classList.add('is-sticky');
+                    header.classList.add('has-sticky-header');
+                    isSticky = true;
+                } else if (window.scrollY <= stickyOffset && isSticky) {
+                    headerMain.classList.remove('is-sticky');
+                    header.classList.remove('has-sticky-header');
+                    header.style.paddingBottom = '';
+                    isSticky = false;
+                }
+            }
+            window.addEventListener('scroll', function() {
+                requestAnimationFrame(updateSticky);
+            });
+        })();
+    </script>
+</body>
+</html>
