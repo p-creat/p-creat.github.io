@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>一个简单的div</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>长按与悬停效果</title>
+    <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 20px;
+        }
+        .fd-box {
+            height: 100px;
+            width: 100px;
+            background: pink;
+            transition: background 0.2s ease; /* 平滑过渡 */
+            cursor: pointer;
+            user-select: none; /* 避免移动端长按时选中文字 */
+            -webkit-tap-highlight-color: transparent; /* 移除移动端点击灰层 */
+        }
+        /* PC端 hover 效果 */
+        .fd-box:hover {
+            background: white;
+        }
+        /* 移动端长按时的样式（通过JS动态添加类） */
+        .fd-box.long-press {
+            background: lightblue; /* 长按时变成浅蓝色，你可以改成任意颜色 */
+        }
+    </style>
 </head>
 <body>
-    <div style="width:100%;overflow-x: auto;">
-        这是一个普、的 div4444444443333333333333333333333339999999999999999999999999999999999000000000000000000uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu。
+    <div class="fd-box">
+        这是一个普通div
     </div>
-     <div style="max-width: 800px;overflow-x: auto;">
-        这是22222个普、的 div4444444443333333333333333333333339999999999999999999999999999999999000000000000000000uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu。
-    </div>
-         <div style="width: 8000px;">
-            33333333333333333333333333333333333333333333333333333333333333333333333399999999999999999999hhhhhhhhhhhhhhhhhhhhhhhhhhhsssssssssssss888
-    </div>
+
+    <script>
+        (function() {
+            const box = document.querySelector('.fd-box');
+            if (!box) return;
+
+            let timer = null;
+            // 长按触发的最小毫秒数
+            const LONG_PRESS_DURATION = 500;
+
+            // 清除计时器并移除样式
+            function clearPress() {
+                if (timer) {
+                    clearTimeout(timer);
+                    timer = null;
+                }
+                box.classList.remove('long-press');
+            }
+
+            // 开始触摸时启动计时器
+            function onTouchStart(e) {
+                // 阻止默认行为（如页面滚动、缩放、系统长按菜单），注意不要影响滚动区域
+                // 若该元素需要滚动，可以只在长按时阻止，这里简单阻止避免长按菜单弹出
+                e.preventDefault();
+                // 先清除之前的计时器（避免连续触摸）
+                clearPress();
+                // 启动长按计时
+                timer = setTimeout(() => {
+                    box.classList.add('long-press');
+                    timer = null;
+                }, LONG_PRESS_DURATION);
+            }
+
+            // 触摸结束或离开元素时取消长按
+            function onTouchEnd(e) {
+                clearPress();
+            }
+
+            // 触摸过程中如果手指移出元素，也应取消
+            function onTouchCancel(e) {
+                clearPress();
+            }
+
+            // 移动端事件绑定
+            box.addEventListener('touchstart', onTouchStart, { passive: false });
+            box.addEventListener('touchend', onTouchEnd);
+            box.addEventListener('touchcancel', onTouchCancel);
+
+            // 可选：PC端hover已经通过CSS实现，无需额外JS
+            // 但为了兼容模拟器或触控笔，可保留原有mouseenter/mouseleave，但CSS hover足够
+        })();
+    </script>
 </body>
 </html>
-<style>
-    html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-    position: relative;
-    background-color: yellow;
-}
-</style>
